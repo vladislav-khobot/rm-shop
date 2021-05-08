@@ -1,10 +1,13 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { MongooseModule } from '@nestjs/mongoose';
+
+import { appConfig } from 'config/app.config';
+import { ColorsModule } from './modules/colors/colors.module';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    MongooseModule.forRoot(appConfig.db.connection),
+    ColorsModule,
+  ],
 })
 export class AppModule {}
