@@ -13,6 +13,7 @@ import { Character, CharacterSchema } from 'modules/characters/schemas/character
     }]),
   ],
   controllers: [CharactersController],
-  providers: [CharactersService]
+  providers: [CharactersService],
+  exports: [CharactersService],
 })
 export class CharactersModule {}

@@ -13,6 +13,7 @@ import { Color, ColorSchema } from 'modules/colors/schemas/color.schema';
     }]),
   ],
   controllers: [ColorsController],
-  providers: [ColorsService]
+  providers: [ColorsService],
+  exports: [ColorsService],
 })
 export class ColorsModule {}
