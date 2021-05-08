@@ -15,7 +15,7 @@ export class Size {
 
   @ApiProperty({ default: 'XL' })
   @Prop()
-  color: TSize;
+  size: TSize;
 
   @ApiProperty({ default: 2 })
   @Prop()

@@ -13,6 +13,7 @@ import { Size, SizesSchema } from 'modules/sizes/schemas/sizes.schema';
     }]),
   ],
   controllers: [SizesController],
-  providers: [SizesService]
+  providers: [SizesService],
+  exports: [SizesService],
 })
 export class SizesModule {}
