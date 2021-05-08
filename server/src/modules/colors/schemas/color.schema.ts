@@ -12,7 +12,7 @@ export class Color {
   @ApiProperty({ default: '6096aada49c9b155f831b465' })
   @Prop({ virtual: true })
   id: string;
-  
+
   @ApiProperty({ default: 'black' })
   @Prop()
   color: TColor;
