@@ -18,7 +18,11 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "migrate:create": "npx migrate-mongo create",
+    "migrate:up": "npx migrate-mongo up",
+    "migrate:down": "npx migrate-mongo down",
+    "migrate:status": "npx migrate-mongo status"
   },
   "dependencies": {
     "@nestjs/common": "^7.6.15",

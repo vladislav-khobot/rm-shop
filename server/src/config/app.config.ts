@@ -1,4 +1,5 @@
-import * as dotenv from 'dotenv';
+import * as dotenv  from 'dotenv';
+dotenv.config();
 
 interface DatabaseConfig {
   host: string;
@@ -12,8 +13,6 @@ interface AppConfig {
   port: string | number;
   db: DatabaseConfig;
 }
-
-dotenv.config();
 
 const port = process.env.PORT || 3010;
 
