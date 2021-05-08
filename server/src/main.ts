@@ -24,8 +24,6 @@ async function bootstrap() {
 
   await app.listen(appConfig.port);
   logger.log(`Server is running on http://localhost:${appConfig.port}`);
-
-  logger.log(appConfig);
 }
 
 bootstrap();
