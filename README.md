@@ -21,6 +21,8 @@ npm run start:dev
 
 Server will run on [http://localhost:3010](http://localhost:3010)
 
+After the server is running there is an API documentation available on [localhost:3010/docs](http://localhost:3010/docs).
+
 ## Client
 
 Install dependencies:
