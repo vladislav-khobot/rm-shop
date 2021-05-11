@@ -46,7 +46,6 @@
     "no-nested-ternary":"error",
     "no-undef":"error",
     "no-mixed-spaces-and-tabs":"error",
-    "linebreak-style":"error",
     "one-var":"error",
     "no-useless-escape":"error",
     "no-undef-init":"error",
@@ -102,6 +101,7 @@
     "no-restricted-globals":"warn",
     "no-continue":"warn",
     "semi-spacing":"warn",
+    "linebreak-style":"warn",
 
     "import/no-useless-path-segments":"error",
     "import/no-unresolved":"error",
