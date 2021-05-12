@@ -6,6 +6,7 @@ import { ColorsModule } from './modules/colors/colors.module';
 import { SizesModule } from './modules/sizes/sizes.module';
 import { CharactersModule } from './modules/characters/characters.module';
 import { GalleryModule } from './modules/gallery/gallery.module';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { GalleryModule } from './modules/gallery/gallery.module';
     SizesModule,
     CharactersModule,
     GalleryModule,
+    AuthModule,
   ],
 })
 export class AppModule {}
