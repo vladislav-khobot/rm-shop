@@ -9,6 +9,7 @@ export class SchemaUtils {
       transform: (_, ret) => {
         ret.id = ret._id.toHexString();
         delete ret._id;
+        delete ret.__v;
       }
     });
 

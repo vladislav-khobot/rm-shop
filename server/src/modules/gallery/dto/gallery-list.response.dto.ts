@@ -1,8 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-
 import { Character } from 'modules/characters/schemas/character.schema';
-import { Color } from 'modules/colors/schemas/color.schema';
-import { Size } from 'modules/sizes/schemas/sizes.schema';
 
 export class GalleryListResponseDto {
 

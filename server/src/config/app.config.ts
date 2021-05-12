@@ -1,18 +1,8 @@
 import * as dotenv  from 'dotenv';
+import { toInteger } from 'lodash';
+import { AppConfig } from 'interfaces/config';
+
 dotenv.config();
-
-interface DatabaseConfig {
-  host: string;
-  user: string;
-  password: string;
-  name: string;
-  connection: string;
-}
-
-interface AppConfig {
-  port: string | number;
-  db: DatabaseConfig;
-}
 
 const port = process.env.PORT || 3010;
 
@@ -30,5 +20,18 @@ export const appConfig: AppConfig = {
     password,
     name,
     connection,
+  },
+  google: {
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    redirectURL: process.env.GOOGLE_REDIRECT_URL,
+  },
+  login: {
+    successURL: process.env.LOGIN_SUCCESS_URL,
+    failureURL: process.env.LOGIN_FAILURE_URL,
+  },
+  jwt: {
+    secretKey: process.env.JWT_SECRET_KEY,
+    expiresIn: toInteger(process.env.JWT_EXPIRES_IN),
   }
 };
