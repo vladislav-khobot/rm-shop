@@ -13,5 +13,8 @@ export const GlobalStyle = createGlobalStyle`
     background-image: url(${backgroundImage});
     background-repeat: no-repeat;
     background-size: cover;
+
+    display: flex;
+    flex-direction: column;
   }
 `;

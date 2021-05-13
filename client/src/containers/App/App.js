@@ -1,10 +1,9 @@
+import { Logo } from 'components/Logo';
 import React from 'react';
 
 function App() {
   return (
-    <div>
-      thomething for linter
-    </div>
+    <Logo />
   );
 }
 
