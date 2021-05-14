@@ -3,10 +3,8 @@ import PropTypes from 'prop-types';
 
 import { StyledButton } from './Button.style';
 
-const BUTTON_TYPES = {
-  default: 'button',
-  primary: 'submit',
-};
+import { BUTTON_TYPES } from './Button.types';
+
 function Button(props) {
   const { type, children, onClick } = props;
 

@@ -1,9 +1,10 @@
-import { Logo } from 'components/Logo';
 import React from 'react';
+
+import { Test } from 'pages/Test';
 
 function App() {
   return (
-    <Logo />
+    <Test />
   );
 }
 
