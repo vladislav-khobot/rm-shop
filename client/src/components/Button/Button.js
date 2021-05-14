@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 
 import { StyledButton } from './Button.style';
 
+const BUTTON_TYPES = {
+  default: 'button',
+  primary: 'submit',
+};
 function Button(props) {
   const { type, children, onClick } = props;
 
@@ -14,15 +18,18 @@ function Button(props) {
 }
 
 Button.propTypes = {
-  type: PropTypes.string,
+  type: PropTypes.oneOf([
+    BUTTON_TYPES.default,
+    BUTTON_TYPES.primary,
+  ]),
   onClick: PropTypes.func,
   children: PropTypes.any,
 };
 
 Button.defaultProps = {
-  type: '',
+  type: BUTTON_TYPES.default,
   onClick: () => {},
-  children: undefined,
+  children: null,
 };
 
 export { Button };
