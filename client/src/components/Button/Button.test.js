@@ -28,7 +28,7 @@ describe('Component Button', () => {
     const className = node.className;
 
     expect(node).toBeInTheDocument();
-    expect(className.includes('btn default')).toBeTruthy();
+    expect(className.includes('default')).toBeTruthy();
   });
 
   test('Render with type "primary"', () => {
@@ -38,7 +38,7 @@ describe('Component Button', () => {
     const className = node.className;
 
     expect(node).toBeInTheDocument();
-    expect(className.includes('btn primary')).toBeTruthy();
+    expect(className.includes('primary')).toBeTruthy();
   });
 
   test('Event reaction: "onClick"', () => {

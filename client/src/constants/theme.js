@@ -29,15 +29,27 @@ export const THEME = {
     main: colors.mainBlack,
     second: colors.secondBlack,
     head: colors.mainWhite,
-    button: colors.mainWhite,
+    button: {
+      default: colors.mainBlack,
+      primary: colors.mainWhite,
+    },
     warning: colors.mainRed,
     basketNotes: colors.mainGrey,
   },
   bg: {
     main: colors.mainWhite,
     header: colors.mainBlack,
-    button: colors.mainBlue,
+    button: {
+      default: colors.mainWhite,
+      primary: colors.mainBlue,
+    },
     shirtCard: colors.mainWhite,
     input: colors.mainWhite,
+  },
+  border: {
+    button: {
+      default: colors.mainGrey,
+      primary: colors.mainBlue,
+    },
   },
 };

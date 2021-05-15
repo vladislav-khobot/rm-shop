@@ -7,7 +7,7 @@ import logoImage from 'assets/images/logo-image.png';
 function Logo() {
 
   return (
-    <Wrapper>
+    <Wrapper data-testid="logo">
       <img src={logoImage} alt="" />
       <div>Rick & Morty T-Shirts</div>
     </Wrapper>

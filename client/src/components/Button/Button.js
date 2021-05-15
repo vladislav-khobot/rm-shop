@@ -9,7 +9,7 @@ import { BUTTON_TYPES } from './Button.types';
 function Button(props) {
   const { type, children, onClick } = props;
 
-  const className = clsx('btn', {
+  const className = clsx({
     default: type === BUTTON_TYPES.default,
     primary: type === BUTTON_TYPES.primary,
   });
