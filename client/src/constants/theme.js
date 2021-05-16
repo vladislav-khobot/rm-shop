@@ -35,6 +35,7 @@ export const THEME = {
     },
     warning: colors.mainRed,
     basketNotes: colors.mainGrey,
+    input: colors.secondBlack,
   },
   bg: {
     main: colors.mainWhite,
@@ -51,5 +52,6 @@ export const THEME = {
       default: colors.mainGrey,
       primary: colors.mainBlue,
     },
+    input: colors.mainGrey,
   },
 };
