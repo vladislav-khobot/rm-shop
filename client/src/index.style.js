@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
     width: 100vw;
     height: 100vh;
     font-size: 16px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Rubik', sans-serif;
     background-image: url(${backgroundImage});
     background-repeat: no-repeat;
     background-size: cover;
