@@ -14,4 +14,8 @@ export class CharactersService {
   async findAll(): Promise<Character[]> {
     return this.characterModel.find().exec();
   }
+
+  async findByID(characterID: string): Promise<Character> {
+    return this.characterModel.findOne({ _id: characterID}).exec();
+  }
 }

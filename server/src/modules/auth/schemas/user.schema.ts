@@ -8,7 +8,7 @@ export type UserDocument = User & Document;
 
 @Schema({ collection: 'users' })
 export class User {
-  @ApiProperty({ default: '6096aada49c9b155f831b465' })
+  @ApiProperty({ default: '6096ab3a49c9b155f831b465' })
   @Prop({ virtual: true })
   id?: string;
 

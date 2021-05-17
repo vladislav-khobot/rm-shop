@@ -6,7 +6,6 @@ import { Color, ColorDocument } from 'modules/colors/schemas/color.schema';
 
 @Injectable()
 export class ColorsService {
-
   constructor(
     @InjectModel(Color.name) private colorModel: Model<ColorDocument>
   ) {}
