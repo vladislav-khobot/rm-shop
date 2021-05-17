@@ -9,9 +9,9 @@ import { Size } from 'modules/sizes/schemas/sizes.schema';
 export class SizesController {
   constructor(private sizesService: SizesService) {}
 
+  @Get('')
   @ApiOperation({ summary: 'Get all available sizes' })
   @ApiOkResponse({ type: [Size] })
-  @Get('')
   async list(): Promise<Size[]> {
     return this.sizesService.findAll();
   }

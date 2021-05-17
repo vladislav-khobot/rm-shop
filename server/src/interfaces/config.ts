@@ -23,7 +23,7 @@ interface JWTConfig {
 }
 
 export interface AppConfig {
-  port: string | number;
+  port: number;
   db: DatabaseConfig;
   google: GoogleConfig;
   login: LoginConfig,

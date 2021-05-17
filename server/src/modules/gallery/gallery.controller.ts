@@ -9,9 +9,9 @@ import { GalleryListResponseDto } from 'modules/gallery/dto/gallery-list.respons
 export class GalleryController {
   constructor(private galleryService: GalleryService) {}
 
+  @Get('')
   @ApiOperation({ summary: 'Get gallery' })
   @ApiOkResponse({ type: [GalleryListResponseDto]})
-  @Get('')
   async list(): Promise<GalleryListResponseDto[]> {
     return this.galleryService.list();
   }

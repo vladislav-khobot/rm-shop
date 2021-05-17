@@ -9,9 +9,9 @@ import { Character } from 'modules/characters/schemas/character.schema';
 export class CharactersController {
   constructor(private charactersService: CharactersService) {}
 
+  @Get('')
   @ApiOperation({ summary: 'Get all available characters' })
   @ApiOkResponse({ type: [Character] })
-  @Get('')
   async list(): Promise<Character[]> {
     return this.charactersService.findAll();
   }
