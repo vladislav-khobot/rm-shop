@@ -4,9 +4,16 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import * as bodyParser from 'body-parser';
 
 import { appConfig } from 'config/app.config';
+import { ConfigUtils } from 'utils/ConfigUtils/ConfigUtils';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
+  const isConfigValid = ConfigUtils.validate(appConfig);
+  if (!isConfigValid) {
+    process.exit(1);
+    return;
+  }
+
   const app = await NestFactory.create(AppModule);
   const logger = new Logger('Bootstrap');
 
