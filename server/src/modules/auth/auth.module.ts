@@ -20,6 +20,9 @@ import { User, UserSchema } from 'modules/auth/schemas/user.schema';
     GoogleStrategy,
     JwtStrategy,
   ],
-  exports: [JwtStrategy],
+  exports: [
+    AuthService,
+    JwtStrategy,
+  ],
 })
 export class AuthModule {}

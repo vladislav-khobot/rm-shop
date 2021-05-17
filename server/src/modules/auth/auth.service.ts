@@ -13,13 +13,17 @@ export class AuthService {
     @InjectModel(User.name) private userModel: Model<UserDocument>
   ) {}
 
-  async findUser(providerID: string): Promise<User> {
+  async findUserByID(userID: string): Promise<User> {
+    return this.userModel.findOne({ _id: userID }).exec();
+  }
+
+  async findUserByProviderID(providerID: string): Promise<User> {
     return this.userModel.findOne({ providerID }).exec();
   }
 
   async upsertUser(user: User): Promise<User> {
     const { providerID } = user;
-    const existedUser = await this.findUser(providerID);
+    const existedUser = await this.findUserByProviderID(providerID);
     if (existedUser) {
       return existedUser;
     }
