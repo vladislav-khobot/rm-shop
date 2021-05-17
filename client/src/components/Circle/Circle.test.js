@@ -1,52 +1,50 @@
 import { cleanup, fireEvent, render } from '@testing-library/react';
 
-import { Ellipse } from './Ellipse';
+import { Circle } from './Circle';
 
 import { THEME } from 'constants/theme';
 
-describe('Component Ellipse', () => {
+describe('Component Circle', () => {
   afterEach(() => {
     cleanup();
   });
 
   const colorWhite = THEME.colors.mainWhite;
-  const testColor = THEME.colors.mainRed;
 
   const setup = (props = {}) => {
     return render(
-      <Ellipse {...props} />
+      <Circle {...props} />
     );
   }
 
   test('Is render', () => {
     const { getByTestId } = setup();
-    const node = getByTestId(`ellipse-${colorWhite}-`);
+    const node = getByTestId(`circle`);
 
     expect(node).toBeInTheDocument();
   });
 
   test('Transmitted color', () => {
-    const { getByTestId } = setup({ color: testColor });
-    const node = getByTestId(`ellipse-${testColor}-`);
+    const { getByTestId } = setup({ color: colorWhite });
+    const node = getByTestId('circle');
 
-    expect(node).toBeInTheDocument();
+    expect(node).toHaveClass('white');
   });
 
   test('Transmitted active', () => {
-    const { getByTestId } = setup({ color: testColor, active: testColor });
-    const node = getByTestId(`ellipse-${testColor}-${testColor}`);
+    const { getByTestId } = setup({ active: true });
+    const node = getByTestId('circle');
 
-    expect(node).toBeInTheDocument();
+    expect(node).toHaveClass('active');
   });
 
   test('Event reaction: "onChange"', () => {
     const onChange = jest.fn();
 
     const { getByTestId } = setup({ onChange });
-    const node = getByTestId(`ellipse-${colorWhite}-`);
+    const node = getByTestId('circle');
 
     fireEvent.click(node);
     expect(onChange).toHaveBeenCalled();
-
   });
 });

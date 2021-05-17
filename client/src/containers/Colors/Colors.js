@@ -1,29 +1,37 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { Ellipse } from 'components/Ellipse';
+import { THEME } from 'constants/theme';
+
+import { Circle } from 'components/Circle';
 import { StyledColors } from './Colors.style';
 
 function Colors(props) {
-  const { colors, active, onChange } = props;
+  const { colors } = props;
+
+  const [activeColor, setActiveColor] = useState('');
+
+  const onChange = useCallback((color) => {
+    setActiveColor(color);
+  }, [setActiveColor]);
+
+  useEffect(() => {
+    setActiveColor(THEME.colors.mainBlue);
+  }, []);
 
   return (
     <StyledColors data-testid="colors">
-      {colors.map((color) => <Ellipse key={color} color={color} active={active} onChange={onChange} />)}
+      {colors.map((color) => <Circle key={color} color={color} active={activeColor === color} onChange={onChange} />)}
     </StyledColors>
   );
 }
 
 Colors.propTypes = {
   colors: PropTypes.array,
-  active: PropTypes.string,
-  onChange: PropTypes.func,
 };
 
 Colors.defaultProps = {
   colors: [],
-  active: '',
-  onChange: () => {},
 };
 
 export { Colors };
