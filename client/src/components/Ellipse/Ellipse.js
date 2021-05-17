@@ -6,19 +6,29 @@ import { THEME } from 'constants/theme';
 import { StyledEllipse } from './Ellipse.style';
 
 function Ellipse(props) {
-  const { color } = props;
+  const { color, active, onChange } = props;
 
   return (
-    <StyledEllipse color={color} />
+    <StyledEllipse
+      data-testid={`ellipse-${color}-${active}`}
+      color={color}
+      data-color={color}
+      active={active}
+      onClick={onChange}
+    />
   );
 }
 
 Ellipse.propTypes = {
   color: PropTypes.string,
+  active: PropTypes.string,
+  onChange: PropTypes.func,
 };
 
 Ellipse.defaultProps = {
   color: THEME.colors.mainWhite,
+  active: '',
+  onChange: () => {},
 };
 
 export { Ellipse };
