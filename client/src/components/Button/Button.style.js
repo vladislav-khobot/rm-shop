@@ -3,12 +3,22 @@ import styled from 'styled-components';
 import { THEME } from 'constants/theme';
 
 export const StyledButton = styled.button`
-  background: ${THEME.bg.button};
+
   padding: 0.75rem 1.75rem;
   box-sizing: border-box;
-  border-color: ${THEME.bg.button};
   border-radius: 0.25rem;
   outline: none;
-  color: ${THEME.text.button};
   font-size: 1rem;
+
+  &.default {
+    background: ${THEME.bg.button.default};
+    border-color: ${THEME.bg.button.default};
+    color: ${THEME.text.button.default};
+  }
+
+  &.primary {
+    background: ${THEME.bg.button.primary};
+    border-color: ${THEME.bg.button.primary};
+    color: ${THEME.text.button.primary};
+  }
 `;
