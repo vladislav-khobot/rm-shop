@@ -22,6 +22,15 @@ describe('Component Input', () => {
     expect(node).toBeInTheDocument();
   });
 
+  test('Transmitted type', () => {
+
+    const testType = 'number';
+    const { getByTestId } = setup({ type: testType });
+    const node = getByTestId('input');
+
+    expect(node.type).toEqual(testType);
+  });
+
   test('Transmitted value', () => {
 
     const testValue = 'test';

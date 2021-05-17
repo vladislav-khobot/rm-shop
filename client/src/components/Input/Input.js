@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 import { StyledInput } from './Input.style';
 
 function Input(props) {
-  const { value, placeholder, onChange } = props;
+  const { type, value, placeholder, onChange } = props;
 
   return (
     <StyledInput
       data-testid="input"
-      type="text"
+      type={type}
       value={value}
       placeholder={placeholder}
       onChange={onChange}
@@ -18,12 +18,14 @@ function Input(props) {
 }
 
 Input.propTypes = {
+  type: PropTypes.string,
   value: PropTypes.string,
   placeholder: PropTypes.string,
   onChange: PropTypes.func,
 };
 
 Input.defaultProps = {
+  type: 'text',
   value: '',
   placeholder: '',
   onChange: () => {},
