@@ -11,7 +11,7 @@ export class GalleryController {
 
   @Get('')
   @ApiOperation({ summary: 'Get gallery' })
-  @ApiOkResponse({ type: [GalleryListResponseDto]})
+  @ApiOkResponse({ type: [GalleryListResponseDto] })
   async list(): Promise<GalleryListResponseDto[]> {
     return this.galleryService.list();
   }
