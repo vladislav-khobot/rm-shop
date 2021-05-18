@@ -6,6 +6,7 @@ import { Logo } from 'components/Logo';
 import { Button } from 'components/Button';
 import { Input } from 'components/Input';
 import { Colors } from 'containers/Colors';
+import { Sizes } from 'containers/Sizes';
 
 function Test() {
   const [inputValue, setInputValue] = useState('');
@@ -23,6 +24,9 @@ function Test() {
       <Input value={inputValue} placeholder="Type to search your T-shirt..." onChange={onInputChange} />
       <Colors
         colors={[THEME.colors.mainBlack, THEME.colors.mainBlue, THEME.colors.mainWhite, THEME.colors.mainGreen]}
+      />
+      <Sizes
+        sizes={['S', 'M', 'L', 'XL', 'XXL', 'XXXL']}
       />
     </>
   );
