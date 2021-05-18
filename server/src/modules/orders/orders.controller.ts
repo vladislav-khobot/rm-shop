@@ -1,6 +1,6 @@
 import { Controller, Get, Post, UseGuards, Req, Body, NotFoundException, ForbiddenException } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { ApiTags, ApiOperation, ApiOkResponse, ApiBody } from '@nestjs/swagger';
+import { ApiTags, ApiOperation, ApiOkResponse, ApiBody, ApiBearerAuth } from '@nestjs/swagger';
 
 import { OrdersService } from 'modules/orders/orders.service';
 import { Order } from 'modules/orders/schemas/order.schema';
@@ -13,6 +13,7 @@ export class OrdersController {
 
   @Get('')
   @UseGuards(AuthGuard('jwt'))
+  @ApiBearerAuth('Authorization')
   @ApiOperation({ summary: 'Get all orders by users' })
   @ApiOkResponse({ type: [Order] })
   async list(@Req() req): Promise<Order[]> {
@@ -26,6 +27,7 @@ export class OrdersController {
 
   @Post('')
   @UseGuards(AuthGuard('jwt'))
+  @ApiBearerAuth('Authorization')
   @ApiOperation({ summary: 'Create new order' })
   @ApiBody({ type: OrderCreateRequestDto })
   @ApiOkResponse({ type: Order })
