@@ -38,13 +38,13 @@ describe('Component Circle', () => {
     expect(node).toHaveClass('active');
   });
 
-  test('Event reaction: "onChange"', () => {
-    const onChange = jest.fn();
+  test('Event reaction: "onClick"', () => {
+    const onClick = jest.fn();
 
-    const { getByTestId } = setup({ onChange });
+    const { getByTestId } = setup({ onClick });
     const node = getByTestId('circle');
 
     fireEvent.click(node);
-    expect(onChange).toHaveBeenCalled();
+    expect(onClick).toHaveBeenCalled();
   });
 });

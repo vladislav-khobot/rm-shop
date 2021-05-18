@@ -7,11 +7,11 @@ import { THEME } from 'constants/theme';
 import { StyledCircle } from './Circle.style';
 
 function Circle(props) {
-  const { color, active, onChange } = props;
+  const { color, active, onClick } = props;
 
-  const onClick = useCallback(() => {
-    onChange(color);
-  }, [color, onChange]);
+  const onColorClick = useCallback(() => {
+    onClick(color);
+  }, [color, onClick]);
 
   const className = clsx({
     white: color === THEME.colors.mainWhite,
@@ -23,7 +23,7 @@ function Circle(props) {
       data-testid="circle"
       className={className}
       color={color}
-      onClick={onClick}
+      onClick={onColorClick}
     />
   );
 }
@@ -31,13 +31,13 @@ function Circle(props) {
 Circle.propTypes = {
   color: PropTypes.string,
   active: PropTypes.bool,
-  onChange: PropTypes.func,
+  onClick: PropTypes.func,
 };
 
 Circle.defaultProps = {
   color: THEME.colors.mainWhite,
   active: false,
-  onChange: () => {},
+  onClick: () => {},
 };
 
 export { Circle };

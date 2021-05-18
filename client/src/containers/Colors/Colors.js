@@ -11,7 +11,7 @@ function Colors(props) {
 
   const [activeColor, setActiveColor] = useState('');
 
-  const onChange = useCallback((color) => {
+  const onColorClick = useCallback((color) => {
     setActiveColor(color);
   }, [setActiveColor]);
 
@@ -21,7 +21,7 @@ function Colors(props) {
 
   return (
     <StyledColors data-testid="colors">
-      {colors.map((color) => <Circle key={color} color={color} active={activeColor === color} onChange={onChange} />)}
+      {colors.map((color) => <Circle key={color} color={color} active={activeColor === color} onClick={onColorClick} />)}
     </StyledColors>
   );
 }
