@@ -16,7 +16,7 @@ export function getFormattedIntAndFloadPartsOfValue(value) {
     doublePartValue = (value - intPartValue).toFixed(2) * 100;
   }
 
-  const formattedIntPart = getFormattedNumber(intPartValue, 2);
+  const formattedIntPart = getFormattedNumber(intPartValue, 1);
   const formattedDoublePart = getFormattedNumber(doublePartValue, 2);
 
   return { formattedIntPart, formattedDoublePart };

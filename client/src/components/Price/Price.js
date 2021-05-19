@@ -9,6 +9,7 @@ import { StyledPrice } from './Price.style';
 
 function Price(props) {
   const { size, value } = props;
+  const { formattedIntPart, formattedDoublePart } = getFormattedIntAndFloadPartsOfValue(value);
 
   const classNameIntPart = clsx({
     'medium-int-part': size === priceSizes.medium,
@@ -20,14 +21,12 @@ function Price(props) {
     'large-double-part': size === priceSizes.large,
   });
 
-  const { formattedIntPart, formattedDoublePart } = getFormattedIntAndFloadPartsOfValue(value);
-
   return (
     <StyledPrice data-testid="price">
       <div className={classNameIntPart}>
         {`$ ${formattedIntPart}`}
       </div>
-      <div className={`${classNameDoublePart} double-part`}>
+      <div className={classNameDoublePart}>
         {formattedDoublePart}
       </div>
     </StyledPrice>

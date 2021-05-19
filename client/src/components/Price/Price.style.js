@@ -23,13 +23,13 @@ export const StyledPrice = styled.div`
 
   .medium-double-part {
     font-size: 0.9rem;
-    line-height: 0.6rem;
+    line-height: 0.7rem;
     margin-left: 0.5rem;
   }
 
   .large-double-part {
     font-size: 1.2rem;
-    line-height: 0.9rem;
+    line-height: 1.5rem;
     margin-left: 0.5rem;
   }
 `;

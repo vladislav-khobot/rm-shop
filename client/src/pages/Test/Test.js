@@ -29,7 +29,7 @@ function Test() {
       <Sizes
         sizes={['S', 'M', 'L', 'XL', 'XXL', 'XXXL']}
       />
-      <Price size={priceSizes.large} value={143.9654} />
+      <Price size={priceSizes.large} value={143.96} />
     </>
   );
 }
