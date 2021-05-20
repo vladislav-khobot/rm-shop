@@ -7,6 +7,7 @@ import { Button } from 'components/Button';
 import { Input } from 'components/Input';
 import { Colors } from 'containers/Colors';
 import { Sizes } from 'containers/Sizes';
+import { Price, PRICE_SIZES } from 'components/Price';
 
 function Test() {
   const [inputValue, setInputValue] = useState('');
@@ -28,6 +29,7 @@ function Test() {
       <Sizes
         sizes={['S', 'M', 'L', 'XL', 'XXL', 'XXXL']}
       />
+      <Price size={PRICE_SIZES.large} value={143.96} />
     </>
   );
 }
