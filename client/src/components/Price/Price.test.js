@@ -1,6 +1,6 @@
 import { render, cleanup } from '@testing-library/react';
 
-import { Price, priceSizes } from 'components/Price';
+import { Price, PRICE_SIZES } from 'components/Price';
 
 describe('Component "Price"', () => {
   afterEach(() => {
@@ -21,7 +21,7 @@ describe('Component "Price"', () => {
   });
 
   test('Transmitted size', () => {
-    const { getByTestId } = setup({ size: priceSizes.medium });
+    const { getByTestId } = setup({ size: PRICE_SIZES.medium });
     const node = getByTestId('price');
     const className = node.children[0].className;
 

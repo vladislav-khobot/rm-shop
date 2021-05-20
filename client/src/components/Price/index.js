@@ -1,4 +1,4 @@
 import { Price } from './Price';
-import { priceSizes } from './Price.sizes';
+import { PRICE_SIZES } from './Price.sizes';
 
-export { Price, priceSizes };
+export { Price, PRICE_SIZES };
