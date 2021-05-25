@@ -1,5 +1,5 @@
 import styled from 'styled-components';
 
-export const StyledShirt = styled`
+export const StyledShirt = styled.div`
 
 `;

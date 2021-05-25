@@ -8,6 +8,7 @@ import { Input } from 'components/Input';
 import { Colors } from 'containers/Colors';
 import { Sizes } from 'containers/Sizes';
 import { Price, PRICE_SIZES } from 'components/Price';
+import { Shirt } from 'components/Shirt';
 
 function Test() {
   const [inputValue, setInputValue] = useState('');
@@ -30,6 +31,7 @@ function Test() {
         sizes={['S', 'M', 'L', 'XL', 'XXL', 'XXXL']}
       />
       <Price size={PRICE_SIZES.large} value={143.96} />
+      <Shirt />
     </>
   );
 }

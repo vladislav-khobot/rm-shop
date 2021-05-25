@@ -11,7 +11,9 @@ function Shirt(props) {
   const { size, color, image } = props;
 
   return (
-    <StyledShirt />
+    <StyledShirt>
+      test
+    </StyledShirt>
   );
 }
 
