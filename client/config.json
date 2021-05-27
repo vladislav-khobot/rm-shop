@@ -1,0 +1,5 @@
+{
+  "isDevelopment": true,
+  "isProduction": false,
+  "apiURL": "http://localhost:3010/api"
+}
