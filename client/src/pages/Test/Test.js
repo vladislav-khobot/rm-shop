@@ -2,6 +2,7 @@ import React, { useCallback, useState } from 'react';
 
 import { THEME } from 'constants/theme';
 
+import { TopBar } from 'containers/TopBar';
 import { Logo } from 'components/Logo';
 import { Button } from 'components/Button';
 import { Input } from 'components/Input';
@@ -21,6 +22,7 @@ function Test() {
 
   return (
     <>
+      <TopBar />
       <Logo />
       <Button>
         <span>test</span>

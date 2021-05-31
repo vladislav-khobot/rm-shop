@@ -9,6 +9,7 @@ export const StyledPrice = styled.div`
   margin: 0.5rem;
   color: ${THEME.text.main};
   font-weight: normal;
+  cursor: default;
 
   .medium-int-part {
     font-size: 1.25rem;
