@@ -21,7 +21,7 @@ class FormatUtils {
     const formattedIntPart = this.getFormattedNumber(intPartValue, 1);
     const formattedDoublePart = this.getFormattedNumber(doublePartValue, 2);
 
-    return { formattedIntPart, formattedDoublePart };
+    return [formattedIntPart, formattedDoublePart];
   }
 }
 
