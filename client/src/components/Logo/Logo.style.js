@@ -18,5 +18,6 @@ export const Wrapper = styled.div`
     color: ${THEME.text.head};
     font-size: 24px;
     line-height: 28px;
+    cursor: pointer;
   }
 `;

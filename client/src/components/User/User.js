@@ -1,29 +1,24 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
 
 import { StyledUser } from './User.style';
 
 import defaultImage from './User.png';
 
-function User(props) {
-  const { userName, userImage } = props;
+function User() {
+  const [name, setName] = useState('');
+  const [avatar, setAvatar] = useState('');
+
+  useEffect(() => {
+    setName('Tom Hardy');
+    setAvatar(defaultImage);
+  }, []);
 
   return (
     <StyledUser data-testid="user">
-      <img src={userImage} alt="" />
-      <div>{userName}</div>
+      <img src={avatar} alt="" />
+      <div>{name}</div>
     </StyledUser>
   );
 }
-
-User.propTypes = {
-  userName: PropTypes.string,
-  userImage: PropTypes.string,
-};
-
-User.defaultProps = {
-  userName: '',
-  userImage: defaultImage,
-};
 
 export { User };

@@ -1,12 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
 
 import { StyledBasket } from './Basket.style';
 
 import { ReactComponent as BasketSVG } from './Basket.svg';
 
-function Basket(props) {
-  const { productCount } = props;
+function Basket() {
+  const [productCount, setProductCount] = useState(0);
+
+  useEffect(() => {
+    setProductCount(5); // for test
+  }, []);
 
   return (
     <StyledBasket data-testid="basket">
@@ -15,13 +18,5 @@ function Basket(props) {
     </StyledBasket>
   );
 }
-
-Basket.propTypes = {
-  productCount: PropTypes.number,
-};
-
-Basket.defaultProps = {
-  productCount: 0,
-};
 
 export { Basket };

@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Logo } from 'components/Logo';
 import { Basket } from 'components/Basket';
 import { User } from 'components/User';
 
@@ -9,8 +10,11 @@ function TopBar() {
 
   return (
     <StyledTopBar data-testid="topbar">
-      <Basket productCount={5} />
-      <User userName="Bill Compton" />
+      <Logo />
+      <div className="basket-user">
+        <Basket />
+        <User />
+      </div>
     </StyledTopBar>
   );
 }
