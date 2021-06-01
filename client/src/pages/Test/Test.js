@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 
 import { THEME } from 'constants/theme';
 
-import { Logo } from 'components/Logo';
+import { TopBar } from 'containers/TopBar';
 import { Button } from 'components/Button';
 import { Input } from 'components/Input';
 import { Colors } from 'containers/Colors';
@@ -21,7 +21,7 @@ function Test() {
 
   return (
     <>
-      <Logo />
+      <TopBar />
       <Button>
         <span>test</span>
       </Button>

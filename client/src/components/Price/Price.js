@@ -10,7 +10,7 @@ import { StyledPrice } from './Price.style';
 function Price(props) {
   const { size, value } = props;
 
-  const { formattedIntPart, formattedDoublePart } = FormatUtils.splitPrice(value);
+  const [formattedIntPart, formattedDoublePart] = FormatUtils.splitPrice(value);
 
   const classNameIntPart = clsx({
     'medium-int-part': size === PRICE_SIZES.medium,

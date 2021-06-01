@@ -2,22 +2,19 @@ import styled from 'styled-components';
 
 import { THEME } from 'constants/theme';
 
-export const Wrapper = styled.div`
+export const StyledBasket = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin: 8px 0;
 
-  img {
-    margin: 0 10px;
-  }
+  margin-right: 2.25rem;
 
-  div {
-    margin: 8px 10px;
-    padding-top: 4px;
+  .svg {
+    padding: 1rem;
+  };
+
+  & > div {
     color: ${THEME.text.head};
-    font-size: 24px;
-    line-height: 28px;
     cursor: pointer;
-  }
+  };
 `;
