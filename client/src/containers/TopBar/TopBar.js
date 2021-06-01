@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { Logo } from 'components/Logo';
-import { Basket } from 'components/Basket';
-import { User } from 'components/User';
+import { Basket } from 'containers/TopBar/Basket';
+import { User } from 'containers/TopBar/User';
 
 import { StyledTopBar } from './TopBar.style';
 
