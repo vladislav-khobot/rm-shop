@@ -15,14 +15,7 @@ export const StyledTab = styled.div`
 
   &.active {
     color: ${THEME.colors.mainBlue};
-  };
-
-  &.active::after {
-    content: "";
-    border: 3px solid ${THEME.colors.mainBlue};
-    border-radius: 4px;
-
-    display: block;
-    margin-top: 0.85rem;
+    border-bottom: 3px solid ${THEME.colors.mainBlue};
+    padding-bottom: 0.85rem;
   };
 `;
