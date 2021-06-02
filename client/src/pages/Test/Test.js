@@ -9,6 +9,7 @@ import { Colors } from 'containers/Colors';
 import { Sizes } from 'containers/Sizes';
 import { Price, PRICE_SIZES } from 'components/Price';
 import { Shirt, SHIRT_SIZES } from 'components/Shirt';
+import { Tabs } from 'containers/Tabs';
 
 import testImage from 'assets/images/test-print-image.png';
 
@@ -22,6 +23,7 @@ function Test() {
   return (
     <>
       <TopBar />
+      <Tabs />
       <Button>
         <span>test</span>
       </Button>
