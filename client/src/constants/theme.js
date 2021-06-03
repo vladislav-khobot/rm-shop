@@ -53,5 +53,6 @@ export const THEME = {
       primary: colors.mainBlue,
     },
     input: colors.mainGrey,
+    shirtCard: colors.mainGrey,
   },
 };

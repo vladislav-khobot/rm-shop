@@ -10,6 +10,7 @@ import { Sizes } from 'containers/Sizes';
 import { Price, PRICE_SIZES } from 'components/Price';
 import { Shirt, SHIRT_SIZES } from 'components/Shirt';
 import { Tabs } from 'containers/Tabs';
+import { ShirtCard } from 'containers/ShirtCard';
 
 import testImage from 'assets/images/test-print-image.png';
 
@@ -24,7 +25,7 @@ function Test() {
     <>
       <TopBar />
       <Tabs />
-      <Button>
+      {/* <Button>
         <span>test</span>
       </Button>
       <Input value={inputValue} placeholder="Type to search your T-shirt..." onChange={onInputChange} />
@@ -35,7 +36,8 @@ function Test() {
         sizes={['S', 'M', 'L', 'XL', 'XXL', 'XXXL']}
       />
       <Price size={PRICE_SIZES.large} value={143.96} />
-      <Shirt size={SHIRT_SIZES.large} color={THEME.colors.secondBlue} image={testImage} />
+      <Shirt size={SHIRT_SIZES.large} color={THEME.colors.secondBlue} image={testImage} /> */}
+      <ShirtCard />
     </>
   );
 }

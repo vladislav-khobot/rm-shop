@@ -16,7 +16,7 @@ function Colors(props) {
   }, [setActiveColor]);
 
   useEffect(() => {
-    setActiveColor(THEME.colors.mainBlue);
+    // setActiveColor(THEME.colors.mainBlue);
   }, []);
 
   return (
