@@ -1,5 +1,6 @@
-import { THEME } from 'constants/theme';
 import styled from 'styled-components';
+
+import { THEME } from 'constants/theme';
 
 export const StyledShirtCard = styled.div`
   display: flex;
@@ -13,39 +14,65 @@ export const StyledShirtCard = styled.div`
   border-radius: 0.25rem;
 
   margin: 1rem 10rem;
+  cursor: default;
 
-  .left {
-    flex-grow: 2;
+  .main {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    .shirt {
+      margin: 2.75rem 0 2.75rem 2.75rem;
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+
+      & > div {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        padding: 0.5rem;
+      }
+
+      .name {
+        font-size: 1.5rem;
+        padding-bottom: 2rem;
+      }
+
+      .colors {
+        padding-bottom: 0;
+        & > div {
+          margin-right: 1.5rem;
+        }
+      }
+
+      .sizes {
+        & > div {
+          margin-right: 2rem;
+        }
+      }
+
+      .gender {
+        & > div {
+          margin-right: 1rem;
+        }
+      }
+    }
   }
 
-  .middle {
-    flex-grow: 6;
-
+  .price {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    margin: 2.7rem 3rem;
 
     & > div {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-
-      padding: 1rem;
+      padding-bottom: 6.25rem;
     }
-
-    .name {
-      font-size: 1.5rem;
-    }
-
-    .colors {
-
-    }
-
-    .gender {
-
-    }
-  }
-
-  .right {
-    flex-grow: 2;
   }
 `;

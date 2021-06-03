@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import { Colors } from 'containers/Colors';
 import { Sizes } from 'containers/Sizes';
@@ -23,10 +23,14 @@ function ShirtCard() {
   const [gender, setGender] = useState('');
   const [price, setPrice] = useState(0);
 
+  const onColorClick = useCallback((color) => {
+    setCurrentColor(color);
+  }, [setCurrentColor]);
+
   useEffect(() => {
     setName('Rick Sanchez');
-    setCurrentSize(SHIRT_SIZES.large);
-    setCurrentColor(THEME.colors.mainBlue);
+    setCurrentSize(SHIRT_SIZES.medium);
+    setCurrentColor(THEME.colors.mainBlack);
 
     setColors([THEME.colors.mainBlack, THEME.colors.mainBlue, THEME.colors.mainWhite, THEME.colors.mainGreen]);
     setSizes(['S', 'M', 'L', 'XL', 'XXL', 'XXXL']);
@@ -35,24 +39,28 @@ function ShirtCard() {
   }, []);
 
   return (
-    <StyledShirtCard>
-      <Shirt className="left" size={currentSize} color={currentColor} image={testImage} />
-      <div className="middle">
-        <div className="name">{name}</div>
-        <div className="colors">
-          <div>Color</div>
-          <Colors colors={colors} />
+    <StyledShirtCard data-testid="shirt-card">
+      <div className="main">
+        <div className="shirt">
+          <Shirt size={currentSize} color={currentColor} image={testImage} />
         </div>
-        <div className="sizes">
-          <div>Size</div>
-          <Sizes sizes={sizes} />
-        </div>
-        <div className="gender">
-          <div>Gender</div>
-          <div>{gender}</div>
+        <div className="info">
+          <div className="name">{name}</div>
+          <div className="colors">
+            <div>Color</div>
+            <Colors colors={colors} onClick={onColorClick} />
+          </div>
+          <div className="sizes">
+            <div>Size</div>
+            <Sizes sizes={sizes} />
+          </div>
+          <div className="gender">
+            <div>Gender</div>
+            <div>{gender}</div>
+          </div>
         </div>
       </div>
-      <div className="right">
+      <div className="price">
         <Price size={PRICE_SIZES.large} value={price} />
         <Button type={BUTTON_TYPES.primary}>
           <span>Buy</span>
