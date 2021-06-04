@@ -20,7 +20,7 @@ function Shirt(props) {
 
   return (
     <StyledShirt data-testid="shirt" className={className}>
-      <ShirtSVG className="svg" fill={color} stroke={color === THEME.colors.mainWhite && THEME.colors.mainBlack} />
+      <ShirtSVG className="svg" fill={color} stroke={color === THEME.colors.mainWhite ? THEME.colors.mainBlack : ''} />
       <img src={image} alt="" />
     </StyledShirt>
   );

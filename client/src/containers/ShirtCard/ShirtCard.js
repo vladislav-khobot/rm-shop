@@ -15,7 +15,7 @@ import { StyledShirtCard } from './ShirtCard.style';
 
 function ShirtCard() {
   const [name, setName] = useState('');
-  const [currentSize, setCurrentSize] = useState('');
+  const [currentSize, setCurrentSize] = useState(null);
   const [currentColor, setCurrentColor] = useState('');
 
   const [colors, setColors] = useState([]);

@@ -7,14 +7,10 @@ describe('Container "Shirt Card"', () => {
     cleanup();
   });
 
-  const setup = (props = {}) => {
-    return render(
-      <ShirtCard {...props} />
-    );
-  }
-
   test('Is render', () => {
-    const { getByTestId } = setup();
+    const { getByTestId } = render(
+      <ShirtCard />
+    );
     const node = getByTestId('shirt-card');
 
     expect(node).toBeInTheDocument();
