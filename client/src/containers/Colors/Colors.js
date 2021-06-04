@@ -7,16 +7,17 @@ import { Circle } from 'components/Circle';
 import { StyledColors } from './Colors.style';
 
 function Colors(props) {
-  const { colors } = props;
+  const { colors, onClick } = props;
 
   const [activeColor, setActiveColor] = useState('');
 
   const onColorClick = useCallback((color) => {
     setActiveColor(color);
-  }, [setActiveColor]);
+    onClick(color);
+  }, [setActiveColor, onClick]);
 
   useEffect(() => {
-    setActiveColor(THEME.colors.mainBlue);
+    setActiveColor(THEME.colors.mainBlack);
   }, []);
 
   return (
@@ -28,10 +29,12 @@ function Colors(props) {
 
 Colors.propTypes = {
   colors: PropTypes.array,
+  onClick: PropTypes.func,
 };
 
 Colors.defaultProps = {
   colors: [],
+  onClick: () => {},
 };
 
 export { Colors };

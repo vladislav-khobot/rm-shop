@@ -13,7 +13,7 @@ function Sizes(props) {
   }, [setCurrentSize]);
 
   useEffect(() => {
-    setCurrentSize('S');
+    // setCurrentSize('S');
   }, []);
 
   return (
