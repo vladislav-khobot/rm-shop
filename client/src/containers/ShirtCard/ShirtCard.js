@@ -8,6 +8,7 @@ import { Price, PRICE_SIZES } from 'components/Price';
 import { Button, BUTTON_TYPES } from 'components/Button';
 
 import { THEME } from 'constants/theme';
+import { CommonService } from 'services/CommonService';
 
 import testImage from 'assets/images/test-print-image.png';
 
@@ -26,6 +27,9 @@ function ShirtCard() {
   const onColorClick = useCallback((color) => {
     setCurrentColor(color);
   }, [setCurrentColor]);
+
+  // test
+  CommonService.getColors();
 
   useEffect(() => {
     setName('Rick Sanchez');
