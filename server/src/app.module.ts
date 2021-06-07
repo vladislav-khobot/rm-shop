@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, Logger } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 
 import { appConfig } from 'config/app.config';
@@ -21,5 +21,6 @@ import { DiscountsModule } from './modules/discounts/discounts.module';
     OrdersModule,
     DiscountsModule,
   ],
+  providers: [Logger],
 })
 export class AppModule {}
