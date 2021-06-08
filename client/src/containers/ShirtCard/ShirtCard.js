@@ -9,6 +9,8 @@ import { Button, BUTTON_TYPES } from 'components/Button';
 
 import { CommonService } from 'services/CommonService';
 
+import { THEME } from 'constants/theme';
+
 import { StyledShirtCard } from './ShirtCard.style';
 
 function ShirtCard() {
@@ -23,8 +25,19 @@ function ShirtCard() {
   const [price, setPrice] = useState(0);
 
   const setColorsList = useCallback(async () => {
-    const colorsList = await CommonService.getColors();
+    const colorsData = await CommonService.getColors();
+    const colorsList = colorsData.map(item => {
+      const currentColor = item.color;
+      const themeColor = THEME.colorsMatching[currentColor];
+
+      return themeColor || '';
+    });
+
     setColors(colorsList);
+
+    if (colorsList.length) {
+      setCurrentColor(colorsList[0]);
+    }
   }, [setColors]);
 
   const onColorClick = useCallback((color) => {
@@ -32,7 +45,11 @@ function ShirtCard() {
   }, [setCurrentColor]);
 
   const setSizesList = useCallback(async () => {
-    const sizesList = await CommonService.getSizes();
+    const sizesData = await CommonService.getSizes();
+    const sizesList = sizesData.map(item => {
+      return item.size;
+    });
+
     setSizes(sizesList);
   }, [setSizes]);
 

@@ -1,21 +1,15 @@
 /* eslint-disable no-console */
 import axios from 'axios';
 
-import { COLORS_URL, SIZES_URL, CHARACTERS_URL, GALLERY_URL } from 'constants/requestUrls';
-import { THEME } from 'constants/theme';
+import { API_ROUTES } from 'constants/api';
 
 class CommonService {
 
   static async getColors() {
     try {
-      const res = await axios.get(COLORS_URL);
+      const res = await axios.get(API_ROUTES.colors);
 
-      return res.data.map(item => {
-        const currentColor = item.color;
-        const themeColor = THEME.colorsMatching[currentColor];
-
-        return themeColor || '';
-      });
+      return res.data;
     } catch (error) {
       console.log(error);
     }
@@ -25,11 +19,9 @@ class CommonService {
 
   static async getSizes() {
     try {
-      const res = await axios.get(SIZES_URL);
+      const res = await axios.get(API_ROUTES.sizes);
 
-      return res.data.map(item => {
-        return item.size;
-      });
+      return res.data;
     } catch (error) {
       console.log(error);
     }
@@ -39,15 +31,9 @@ class CommonService {
 
   static async getCharacters() {
     try {
-      const res = await axios.get(CHARACTERS_URL);
+      const res = await axios.get(API_ROUTES.characters);
 
-      return res.data.map(item => {
-        return {
-          name: item.name,
-          image: item.image,
-          basePrice: item.basePrice,
-        };
-      });
+      return res.data;
     } catch (error) {
       console.log(error);
     }
@@ -57,13 +43,9 @@ class CommonService {
 
   static async getGallery() {
     try {
-      const res = await axios.get(GALLERY_URL);
+      const res = await axios.get(API_ROUTES.gallery);
 
-      return res.data.map(item => {
-        return {
-          ...item,
-        };
-      });
+      return res.data;
     } catch (error) {
       console.log(error);
     }
