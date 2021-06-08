@@ -21,9 +21,22 @@ const colors = {
   secondBlue: '#67B1DB',
 };
 
+const colorsMatching = {
+  'black': colors.mainBlack,
+  'white': colors.mainWhite,
+  'grey': colors.mainGrey,
+  'green': colors.mainGreen,
+  'yellow': colors.mainYellow,
+  'red': colors.mainRed,
+  'blue': colors.mainBlue,
+};
+
 export const THEME = {
   colors: {
     ...colors,
+  },
+  colorsMatching: {
+    ...colorsMatching,
   },
   text: {
     main: colors.mainBlack,

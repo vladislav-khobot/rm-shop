@@ -7,15 +7,13 @@ import { Shirt, SHIRT_SIZES } from 'components/Shirt';
 import { Price, PRICE_SIZES } from 'components/Price';
 import { Button, BUTTON_TYPES } from 'components/Button';
 
-import { THEME } from 'constants/theme';
 import { CommonService } from 'services/CommonService';
-
-import testImage from 'assets/images/test-print-image.png';
 
 import { StyledShirtCard } from './ShirtCard.style';
 
 function ShirtCard() {
   const [name, setName] = useState('');
+  const [image, setImage] = useState('');
   const [currentSize, setCurrentSize] = useState(null);
   const [currentColor, setCurrentColor] = useState('');
 
@@ -24,29 +22,42 @@ function ShirtCard() {
   const [gender, setGender] = useState('');
   const [price, setPrice] = useState(0);
 
+  const setColorsList = useCallback(async () => {
+    const colorsList = await CommonService.getColors();
+    setColors(colorsList);
+  }, [setColors]);
+
   const onColorClick = useCallback((color) => {
     setCurrentColor(color);
   }, [setCurrentColor]);
 
-  // test
-  CommonService.getColors();
+  const setSizesList = useCallback(async () => {
+    const sizesList = await CommonService.getSizes();
+    setSizes(sizesList);
+  }, [setSizes]);
+
+  const setCharacter = useCallback(async () => {
+    const charactersList = await CommonService.getCharacters();
+    if (charactersList.length) {
+      setName(charactersList[0].name);
+      setImage(charactersList[0].image);
+      setPrice(charactersList[0].basePrice);
+    }
+  }, [setName, setImage, setPrice]);
 
   useEffect(() => {
-    setName('Rick Sanchez');
+    setCharacter();
+    setColorsList();
+    setSizesList();
     setCurrentSize(SHIRT_SIZES.medium);
-    setCurrentColor(THEME.colors.mainBlack);
-
-    setColors([THEME.colors.mainBlack, THEME.colors.mainBlue, THEME.colors.mainWhite, THEME.colors.mainGreen]);
-    setSizes(['S', 'M', 'L', 'XL', 'XXL', 'XXXL']);
     setGender('Man');
-    setPrice(39.99);
   }, []);
 
   return (
     <StyledShirtCard data-testid="shirt-card">
       <div className="main">
         <div className="shirt">
-          <Shirt size={currentSize} color={currentColor} image={testImage} />
+          <Shirt size={currentSize} color={currentColor} image={image} />
         </div>
         <div className="info">
           <div className="name">{name}</div>
