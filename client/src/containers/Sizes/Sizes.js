@@ -13,8 +13,10 @@ function Sizes(props) {
   }, [setCurrentSize]);
 
   useEffect(() => {
-    // setCurrentSize('S');
-  }, []);
+    if (sizes.length) {
+      setCurrentSize(sizes[0]);
+    }
+  }, [sizes]);
 
   return (
     <StyledSizes data-testid="sizes">

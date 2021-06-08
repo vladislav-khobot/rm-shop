@@ -7,14 +7,15 @@ import { Shirt, SHIRT_SIZES } from 'components/Shirt';
 import { Price, PRICE_SIZES } from 'components/Price';
 import { Button, BUTTON_TYPES } from 'components/Button';
 
-import { THEME } from 'constants/theme';
+import { CommonService } from 'services/CommonService';
 
-import testImage from 'assets/images/test-print-image.png';
+import { THEME } from 'constants/theme';
 
 import { StyledShirtCard } from './ShirtCard.style';
 
 function ShirtCard() {
   const [name, setName] = useState('');
+  const [image, setImage] = useState('');
   const [currentSize, setCurrentSize] = useState(null);
   const [currentColor, setCurrentColor] = useState('');
 
@@ -23,26 +24,57 @@ function ShirtCard() {
   const [gender, setGender] = useState('');
   const [price, setPrice] = useState(0);
 
+  const setColorsList = useCallback(async () => {
+    const colorsData = await CommonService.getColors();
+    const colorsList = colorsData.map(item => {
+      const currentColor = item.color;
+      const themeColor = THEME.colorsMatching[currentColor];
+
+      return themeColor || '';
+    });
+
+    setColors(colorsList);
+
+    if (colorsList.length) {
+      setCurrentColor(colorsList[0]);
+    }
+  }, [setColors]);
+
   const onColorClick = useCallback((color) => {
     setCurrentColor(color);
   }, [setCurrentColor]);
 
-  useEffect(() => {
-    setName('Rick Sanchez');
-    setCurrentSize(SHIRT_SIZES.medium);
-    setCurrentColor(THEME.colors.mainBlack);
+  const setSizesList = useCallback(async () => {
+    const sizesData = await CommonService.getSizes();
+    const sizesList = sizesData.map(item => {
+      return item.size;
+    });
 
-    setColors([THEME.colors.mainBlack, THEME.colors.mainBlue, THEME.colors.mainWhite, THEME.colors.mainGreen]);
-    setSizes(['S', 'M', 'L', 'XL', 'XXL', 'XXXL']);
+    setSizes(sizesList);
+  }, [setSizes]);
+
+  const setCharacter = useCallback(async () => {
+    const charactersList = await CommonService.getCharacters();
+    if (charactersList.length) {
+      setName(charactersList[0].name);
+      setImage(charactersList[0].image);
+      setPrice(charactersList[0].basePrice);
+    }
+  }, [setName, setImage, setPrice]);
+
+  useEffect(() => {
+    setCharacter();
+    setColorsList();
+    setSizesList();
+    setCurrentSize(SHIRT_SIZES.medium);
     setGender('Man');
-    setPrice(39.99);
   }, []);
 
   return (
     <StyledShirtCard data-testid="shirt-card">
       <div className="main">
         <div className="shirt">
-          <Shirt size={currentSize} color={currentColor} image={testImage} />
+          <Shirt size={currentSize} color={currentColor} image={image} />
         </div>
         <div className="info">
           <div className="name">{name}</div>

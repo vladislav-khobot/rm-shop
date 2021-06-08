@@ -1,8 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { THEME } from 'constants/theme';
-
 import { Circle } from 'components/Circle';
 import { StyledColors } from './Colors.style';
 
@@ -17,8 +15,10 @@ function Colors(props) {
   }, [setActiveColor, onClick]);
 
   useEffect(() => {
-    setActiveColor(THEME.colors.mainBlack);
-  }, []);
+    if (colors.length) {
+      setActiveColor(colors[0]);
+    }
+  }, [colors]);
 
   return (
     <StyledColors data-testid="colors">
