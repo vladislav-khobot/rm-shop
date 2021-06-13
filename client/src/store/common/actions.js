@@ -1,33 +1,60 @@
-import { CHANGE_COLORS, CHANGE_SIZES, CHANGE_CHARACTERS, CHANGE_GALLERY } from 'store/common/reducer';
+const prefix = '[Common]';
 
-export function actionChangeColors(colors) {
+export const TYPES = {
+  COLORS_RELOAD: `${prefix} colors-reload`,
+  COLORS_REFRESH: `${prefix} colors-refresh`,
+  SIZES_RELOAD: `${prefix} sizes-reload`,
+  SIZES_REFRESH: `${prefix} sizes-refresh`,
+  CHARACTERS_RELOAD: `${prefix} characters-reload`,
+  CHARACTERS_REFRESH: `${prefix} characters-refresh`,
+  GALLERY_RELOAD: `${prefix} gallery-reload`,
+  GALLERY_REFRESH: `${prefix} gallery-refresh`,
+  UPDATE_CURRENT_COLOR: `${prefix} update-current-color`,
+};
 
-  return {
-    type: CHANGE_COLORS,
-    colors,
-  };
-}
+export const commonActions = {
+  ...TYPES,
 
-export function actionChangeSizes(sizes) {
-
-  return {
-    type: CHANGE_SIZES,
-    sizes,
-  };
-}
-
-export function actionChangeCharacters(characters) {
-
-  return {
-    type: CHANGE_CHARACTERS,
-    characters,
-  };
-}
-
-export function actionChangeGallery(gallery) {
-
-  return {
-    type: CHANGE_GALLERY,
-    gallery,
-  };
-}
+  colorsReload: () => ({
+    type: TYPES.COLORS_RELOAD,
+  }),
+  colorsRefresh: (colors) => ({
+    type: TYPES.COLORS_REFRESH,
+    payload: {
+      colors,
+    },
+  }),
+  sizesReload: () => ({
+    type: TYPES.SIZES_RELOAD,
+  }),
+  sizesRefresh: (sizes) => ({
+    type: TYPES.SIZES_REFRESH,
+    payload: {
+      sizes,
+    },
+  }),
+  charactersReload: () => ({
+    type: TYPES.CHARACTERS_RELOAD,
+  }),
+  charactersRefresh: (characters) => ({
+    type: TYPES.CHARACTERS_REFRESH,
+    payload: {
+      characters,
+    },
+  }),
+  galleryReload: () => ({
+    type: TYPES.GALLERY_RELOAD,
+  }),
+  galleryRefresh: (gallery) => ({
+    type: TYPES.GALLERY_REFRESH,
+    payload: {
+      gallery,
+    },
+  }),
+  updateCurrentColor: (currentColor) => ({
+    type: TYPES.UPDATE_CURRENT_COLOR,
+    payload: {
+      currentColor,
+    },
+  }),
+};

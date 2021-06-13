@@ -1,38 +1,43 @@
 import { initialState } from 'store/initialState';
 
-const CHANGE_COLORS = 'CHANGE_COLORS';
-const CHANGE_SIZES = 'CHANGE_SIZES';
-const CHANGE_CHARACTERS = 'CHANGE_CHARACTERS';
-const CHANGE_GALLERY = 'CHANGE_GALLERY';
+import { commonActions } from './actions';
 
 function commonReducer(state = initialState, action) {
-  switch (action.type) {
-    case CHANGE_COLORS:
+  const { type, payload } = action;
+
+  switch (type) {
+    case commonActions.COLORS_REFRESH:
       return {
         ...state,
-        colors: action.colors,
+        colors: payload.colors,
       };
 
-    case CHANGE_SIZES:
+    case commonActions.SIZES_REFRESH:
       return {
         ...state,
-        sizes: action.sizes,
+        sizes: payload.sizes,
       };
 
-    case CHANGE_CHARACTERS:
+    case commonActions.CHARACTERS_REFRESH:
       return {
         ...state,
-        characters: action.characters,
+        characters: payload.characters,
       };
 
-    case CHANGE_GALLERY:
+    case commonActions.GALLERY_REFRESH:
       return {
         ...state,
-        gallery: action.gallery,
+        gallery: payload.gallery,
+      };
+
+    case commonActions.UPDATE_CURRENT_COLOR:
+      return {
+        ...state,
+        currentColor: payload.currentColor,
       };
 
     default: return state;
   }
 }
 
-export { CHANGE_COLORS, CHANGE_SIZES, CHANGE_CHARACTERS, CHANGE_GALLERY, commonReducer };
+export { commonReducer };

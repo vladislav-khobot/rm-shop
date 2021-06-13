@@ -3,6 +3,7 @@ const initialState = {
   sizes: [],
   characters: [],
   gallery: [],
+  currentColor: '',
 };
 
 export { initialState };
