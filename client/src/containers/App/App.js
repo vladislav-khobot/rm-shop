@@ -1,15 +1,21 @@
-import React from 'react';
-import { Provider } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
-import { store } from 'store/store';
+import { commonActions } from 'store/common/actions';
 
 import { Test } from 'pages/Test';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(commonActions.colorsReload());
+    dispatch(commonActions.sizesReload());
+    dispatch(commonActions.charactersReload());
+  }, [dispatch]);
+
   return (
-    <Provider store={store}>
-      <Test />
-    </Provider>
+    <Test />
   );
 }
 

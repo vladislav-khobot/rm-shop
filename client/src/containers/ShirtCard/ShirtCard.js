@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 
 import { commonActions } from 'store/common/actions';
@@ -26,12 +26,15 @@ function ShirtCard() {
   const [currentSize, setCurrentSize] = useState(null);
 
   const colorsData = useSelector(selectColors, shallowEqual) || [];
-  const colorsList = colorsData.map(item => {
-    const currentColor = item.color;
-    const themeColor = THEME.colorsMatching[currentColor];
+  const colorsList = useMemo(() => {
 
-    return themeColor || '';
-  });
+    return colorsData.map(item => {
+      const currentColor = item.color;
+      const themeColor = THEME.colorsMatching[currentColor];
+
+      return themeColor || '';
+    });
+  }, [colorsData]);
 
   const currentColor = useSelector(selectCurrentColor, shallowEqual) || '';
 
@@ -40,19 +43,19 @@ function ShirtCard() {
   }, [dispatch]);
 
   const sizesData = useSelector(selectSizes, shallowEqual) || [];
-  const sizesList = sizesData.map(item => {
-    return item.size;
-  });
+  const sizesList = useMemo(() => {
+
+    return sizesData.map(item => {
+      return item.size;
+    });
+  }, [sizesData]);
 
   const charactersList = useSelector(selectCharacters, shallowEqual) || [];
 
   useEffect(() => {
-    dispatch(commonActions.colorsReload());
-    dispatch(commonActions.sizesReload());
-    dispatch(commonActions.charactersReload());
     setCurrentSize(SHIRT_SIZES.medium);
     setGender('Man');
-  }, [dispatch]);
+  }, []);
 
   useEffect(() => {
     if (charactersList.length) {
