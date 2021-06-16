@@ -104,7 +104,7 @@
     "linebreak-style":"warn",
 
     "import/no-useless-path-segments":"error",
-    "import/no-unresolved":"error",
+    "import/no-unresolved":"warn", // temporary solution for the ability to run a project on a working pc
     "import/prefer-default-export":"off",
     "import/no-named-as-default-member":"off",
     "import/order":"warn",

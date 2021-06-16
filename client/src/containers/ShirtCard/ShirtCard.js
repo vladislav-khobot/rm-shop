@@ -1,4 +1,8 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+
+import { commonActions } from 'store/common/actions';
+import { selectColors, selectSizes, selectCharacters, selectCurrentColor } from 'store/common/selectors';
 
 import { Colors } from 'containers/Colors';
 import { Sizes } from 'containers/Sizes';
@@ -7,68 +11,59 @@ import { Shirt, SHIRT_SIZES } from 'components/Shirt';
 import { Price, PRICE_SIZES } from 'components/Price';
 import { Button, BUTTON_TYPES } from 'components/Button';
 
-import { CommonService } from 'services/CommonService';
-
 import { THEME } from 'constants/theme';
 
 import { StyledShirtCard } from './ShirtCard.style';
 
 function ShirtCard() {
+  const dispatch = useDispatch();
+
   const [name, setName] = useState('');
   const [image, setImage] = useState('');
-  const [currentSize, setCurrentSize] = useState(null);
-  const [currentColor, setCurrentColor] = useState('');
-
-  const [colors, setColors] = useState([]);
-  const [sizes, setSizes] = useState([]);
   const [gender, setGender] = useState('');
   const [price, setPrice] = useState(0);
 
-  const setColorsList = useCallback(async () => {
-    const colorsData = await CommonService.getColors();
-    const colorsList = colorsData.map(item => {
+  const [currentSize, setCurrentSize] = useState(null);
+
+  const colorsData = useSelector(selectColors, shallowEqual) || [];
+  const colorsList = useMemo(() => {
+
+    return colorsData.map(item => {
       const currentColor = item.color;
       const themeColor = THEME.colorsMatching[currentColor];
 
       return themeColor || '';
     });
+  }, [colorsData]);
 
-    setColors(colorsList);
-
-    if (colorsList.length) {
-      setCurrentColor(colorsList[0]);
-    }
-  }, [setColors]);
+  const currentColor = useSelector(selectCurrentColor, shallowEqual) || '';
 
   const onColorClick = useCallback((color) => {
-    setCurrentColor(color);
-  }, [setCurrentColor]);
+    dispatch(commonActions.updateCurrentColor(color));
+  }, [dispatch]);
 
-  const setSizesList = useCallback(async () => {
-    const sizesData = await CommonService.getSizes();
-    const sizesList = sizesData.map(item => {
+  const sizesData = useSelector(selectSizes, shallowEqual) || [];
+  const sizesList = useMemo(() => {
+
+    return sizesData.map(item => {
       return item.size;
     });
+  }, [sizesData]);
 
-    setSizes(sizesList);
-  }, [setSizes]);
+  const charactersList = useSelector(selectCharacters, shallowEqual) || [];
 
-  const setCharacter = useCallback(async () => {
-    const charactersList = await CommonService.getCharacters();
+  useEffect(() => {
+    setCurrentSize(SHIRT_SIZES.medium);
+    setGender('Man');
+  }, []);
+
+  useEffect(() => {
     if (charactersList.length) {
       setName(charactersList[0].name);
       setImage(charactersList[0].image);
       setPrice(charactersList[0].basePrice);
     }
-  }, [setName, setImage, setPrice]);
-
-  useEffect(() => {
-    setCharacter();
-    setColorsList();
-    setSizesList();
-    setCurrentSize(SHIRT_SIZES.medium);
-    setGender('Man');
-  }, []);
+  }, [charactersList]);
 
   return (
     <StyledShirtCard data-testid="shirt-card">
@@ -80,11 +75,11 @@ function ShirtCard() {
           <div className="name">{name}</div>
           <div className="colors">
             <div>Color</div>
-            <Colors colors={colors} onClick={onColorClick} />
+            <Colors colors={colorsList} onClick={onColorClick} />
           </div>
           <div className="sizes">
             <div>Size</div>
-            <Sizes sizes={sizes} />
+            <Sizes sizes={sizesList} />
           </div>
           <div className="gender">
             <div>Gender</div>
