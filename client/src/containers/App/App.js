@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { BrowserRouter, Route, NavLink, Switch } from 'react-router-dom';
 
 import { commonActions } from 'store/common/actions';
 
@@ -15,7 +16,9 @@ function App() {
   }, [dispatch]);
 
   return (
-    <Test />
+    <BrowserRouter>
+      <Test />
+    </BrowserRouter>
   );
 }
 
