@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { BrowserRouter, Route, NavLink, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import { commonActions } from 'store/common/actions';
 
 import { Test } from 'pages/Test';
+import { NotFoundPage } from 'pages/NotFoundPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -17,7 +18,11 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Test />
+      <Switch>
+        <Route exact path="/" component={Test} />
+        <Route exact path="/gallery" component={Test} />
+        <Route exact path="/*" component={NotFoundPage} />
+      </Switch>
     </BrowserRouter>
   );
 }
