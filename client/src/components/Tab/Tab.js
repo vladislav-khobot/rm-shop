@@ -7,7 +7,7 @@ import clsx from 'clsx';
 import { StyledTab } from './Tab.style';
 
 function Tab(props) {
-  const { caption, active, onClick, exact, to } = props;
+  const { caption, active, onClick, type } = props;
 
   const className = clsx({
     active,
@@ -18,7 +18,7 @@ function Tab(props) {
   }, [caption, onClick]);
 
   return (
-    <NavLink to={to} exact={exact}>
+    <NavLink to={type}>
       <StyledTab className={className} onClick={onTabClick} data-testid="tab">
         {caption}
       </StyledTab>
@@ -30,16 +30,14 @@ Tab.propTypes = {
   caption: PropTypes.string,
   active: PropTypes.bool,
   onClick: PropTypes.func,
-  exact: PropTypes.bool,
-  to: PropTypes.string,
+  type: PropTypes.string,
 };
 
 Tab.defaultProps = {
   caption: '',
   active: false,
   onClick: () => {},
-  exact: false,
-  to: '',
+  type: '',
 };
 
 export { Tab };

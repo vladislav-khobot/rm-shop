@@ -1,7 +1,9 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
-import { StyledTabs } from 'containers/Tabs/Tabs.style';
+import { ROUTES } from 'constants/routes';
+
 import { Tab } from 'components/Tab';
+import { StyledTabs } from './Tabs.style';
 
 function Tabs() {
   const [currentTab, setCurrentTab] = useState('');
@@ -10,11 +12,15 @@ function Tabs() {
     setCurrentTab(caption);
   }, [setCurrentTab]);
 
+  useEffect(() => {
+    setCurrentTab('Gallery');
+  }, []);
+
   return (
     <StyledTabs data-testid="tabs">
-      <Tab caption="Gallery" active={currentTab === 'Gallery'} onClick={onClick} exact to="/gallery" />
-      <Tab caption="Constructor" active={currentTab === 'Constructor'} onClick={onClick} exact to="constructor" />
-      <Tab caption="Orders" active={currentTab === 'Orders'} onClick={onClick} exact to="orders" />
+      <Tab caption={ROUTES.gallery.caption} active={currentTab === ROUTES.gallery.caption} onClick={onClick} type={ROUTES.gallery.route} />
+      <Tab caption={ROUTES.constructor.caption} active={currentTab === ROUTES.constructor.caption} onClick={onClick} type={ROUTES.constructor.route} />
+      <Tab caption={ROUTES.orders.caption} active={currentTab === ROUTES.orders.caption} onClick={onClick} type={ROUTES.orders.route} />
     </StyledTabs>
   );
 }
