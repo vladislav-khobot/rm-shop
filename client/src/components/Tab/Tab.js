@@ -18,8 +18,10 @@ function Tab(props) {
     onClick(caption);
   }, [caption, onClick]);
 
+  const route = ROUTES[type] || ROUTES.home;
+
   return (
-    <NavLink to={ROUTES[type]}>
+    <NavLink to={route}>
       <StyledTab className={className} onClick={onTabClick} data-testid="tab">
         {caption}
       </StyledTab>
@@ -38,7 +40,7 @@ Tab.defaultProps = {
   caption: '',
   active: false,
   onClick: () => {},
-  type: '',
+  type: ROUTES.home,
 };
 
 export { Tab };
