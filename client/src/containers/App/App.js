@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import { commonActions } from 'store/common/actions';
+import { ROUTES } from 'constants/routes';
 
 import { Test } from 'pages/Test';
+import { NotFoundPage } from 'pages/NotFoundPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -15,7 +18,13 @@ function App() {
   }, [dispatch]);
 
   return (
-    <Test />
+    <BrowserRouter>
+      <Switch>
+        <Route exact path={ROUTES.home} component={Test} />
+        <Route exact path={ROUTES.gallery} component={Test} />
+        <Route exact path={ROUTES.incorrect} component={NotFoundPage} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
