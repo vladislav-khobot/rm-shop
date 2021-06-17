@@ -20,9 +20,9 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path={ROUTES.home.route} component={Test} />
-        <Route exact path={ROUTES.gallery.route} component={Test} />
-        <Route exact path={ROUTES.incorrect.route} component={NotFoundPage} />
+        <Route exact path={ROUTES.home} component={Test} />
+        <Route exact path={ROUTES.gallery} component={Test} />
+        <Route exact path={ROUTES.incorrect} component={NotFoundPage} />
       </Switch>
     </BrowserRouter>
   );

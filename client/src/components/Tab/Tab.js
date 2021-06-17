@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
+import { ROUTES } from 'constants/routes';
 import { StyledTab } from './Tab.style';
 
 function Tab(props) {
@@ -18,7 +19,7 @@ function Tab(props) {
   }, [caption, onClick]);
 
   return (
-    <NavLink to={type}>
+    <NavLink to={ROUTES[type]}>
       <StyledTab className={className} onClick={onTabClick} data-testid="tab">
         {caption}
       </StyledTab>

@@ -1,7 +1,19 @@
 export const ROUTES = {
-  home: { route: '/', caption: 'home' },
-  gallery: { route: '/gallery', caption: 'Gallery' },
-  constructor: { route: '/constructor', caption: 'Constructor' },
-  orders: { route: '/orders', caption: 'Orders' },
-  incorrect: { route: '/*', caption: 'Error 404' },
+  home: '/',
+  gallery: '/gallery',
+  constructor: '/constructor',
+  orders: '/orders',
+  incorrect: '/*',
+};
+
+export const TAB_TYPES = {
+  gallery: 'gallery',
+  constructor: 'constructor',
+  orders: 'orders',
+};
+
+export const TAB_TITLES = {
+  gallery: 'Gallery',
+  constructor: 'Constructor',
+  orders: 'Orders',
 };
