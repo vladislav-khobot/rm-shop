@@ -10,6 +10,7 @@ export const TYPES = {
   GALLERY_RELOAD: `${prefix} gallery-reload`,
   GALLERY_REFRESH: `${prefix} gallery-refresh`,
   UPDATE_CURRENT_COLOR: `${prefix} update-current-color`,
+  UPDATE_CURRENT_TAB: `${prefix} update-current-tab`,
 };
 
 export const commonActions = {
@@ -55,6 +56,12 @@ export const commonActions = {
     type: TYPES.UPDATE_CURRENT_COLOR,
     payload: {
       currentColor,
+    },
+  }),
+  updateCurrentTab: (currentTab) => ({
+    type: TYPES.UPDATE_CURRENT_TAB,
+    payload: {
+      currentTab,
     },
   }),
 };

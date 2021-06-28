@@ -4,6 +4,7 @@ const initialState = {
   characters: [],
   gallery: [],
   currentColor: '',
+  currentTab: '',
 };
 
 export { initialState };

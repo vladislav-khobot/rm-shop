@@ -1,19 +1,23 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { selectCurrentTab } from 'store/common/selectors';
+import { commonActions } from 'store/common/actions';
 import { TAB_TITLES, TAB_TYPES } from 'constants/routes';
 
 import { Tab } from 'components/Tab';
 import { StyledTabs } from './Tabs.style';
 
 function Tabs() {
-  const [currentTab, setCurrentTab] = useState('');
+  const currentTab = useSelector(selectCurrentTab);
+  const dispatch = useDispatch();
 
   const onClick = useCallback((caption) => {
-    setCurrentTab(caption);
-  }, [setCurrentTab]);
+    dispatch(commonActions.updateCurrentTab(caption));
+  }, [dispatch]);
 
   useEffect(() => {
-    setCurrentTab('Gallery');
+    dispatch(commonActions.updateCurrentTab(TAB_TITLES.gallery));
   }, []);
 
   return (

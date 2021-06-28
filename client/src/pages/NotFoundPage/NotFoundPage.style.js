@@ -11,4 +11,7 @@ export const Wrapper = styled.div`
 
   background-color: black;
   user-select: none;
+
+  position: absolute;
+  top: 0;
 `;

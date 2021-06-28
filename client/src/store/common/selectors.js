@@ -29,3 +29,9 @@ export const selectCurrentColor = createSelector(
   [currentColor],
   (currentColor) => currentColor,
 );
+
+const currentTab = (state) => state.Common.currentTab;
+export const selectCurrentTab = createSelector(
+  [currentTab],
+  (currentTab) => currentTab,
+);
