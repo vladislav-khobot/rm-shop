@@ -15,9 +15,6 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(commonActions.colorsReload());
-    dispatch(commonActions.sizesReload());
-    dispatch(commonActions.charactersReload());
     dispatch(commonActions.galleryReload());
   }, [dispatch]);
 
