@@ -30,13 +30,13 @@ function commonReducer(state = initialState, action) {
         gallery: payload.gallery,
       };
 
-    case commonActions.UPDATE_CURRENT_COLOR:
+    case commonActions.CURRENT_COLOR_UPDATE:
       return {
         ...state,
         currentColor: payload.currentColor,
       };
 
-    case commonActions.UPDATE_CURRENT_TAB:
+    case commonActions.CURRENT_TAB_UPDATE:
       return {
         ...state,
         currentTab: payload.currentTab,

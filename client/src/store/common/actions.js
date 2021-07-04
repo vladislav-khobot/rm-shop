@@ -9,8 +9,8 @@ export const TYPES = {
   CHARACTERS_REFRESH: `${prefix} characters-refresh`,
   GALLERY_RELOAD: `${prefix} gallery-reload`,
   GALLERY_REFRESH: `${prefix} gallery-refresh`,
-  UPDATE_CURRENT_COLOR: `${prefix} update-current-color`,
-  UPDATE_CURRENT_TAB: `${prefix} update-current-tab`,
+  CURRENT_COLOR_UPDATE: `${prefix} current-color-update`,
+  CURRENT_TAB_UPDATE: `${prefix} current-tab-update`,
 };
 
 export const commonActions = {
@@ -52,14 +52,14 @@ export const commonActions = {
       gallery,
     },
   }),
-  updateCurrentColor: (currentColor) => ({
-    type: TYPES.UPDATE_CURRENT_COLOR,
+  currentColorUpdate: (currentColor) => ({
+    type: TYPES.CURRENT_COLOR_UPDATE,
     payload: {
       currentColor,
     },
   }),
-  updateCurrentTab: (currentTab) => ({
-    type: TYPES.UPDATE_CURRENT_TAB,
+  currentTabUpdate: (currentTab) => ({
+    type: TYPES.CURRENT_TAB_UPDATE,
     payload: {
       currentTab,
     },

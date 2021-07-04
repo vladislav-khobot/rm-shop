@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { selectCurrentTab } from 'store/common/selectors';
@@ -13,12 +13,8 @@ function Tabs() {
   const dispatch = useDispatch();
 
   const onClick = useCallback((caption) => {
-    dispatch(commonActions.updateCurrentTab(caption));
+    dispatch(commonActions.currentTabUpdate(caption));
   }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(commonActions.updateCurrentTab(TAB_TITLES.gallery));
-  }, []);
 
   return (
     <StyledTabs data-testid="tabs">

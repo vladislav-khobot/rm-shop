@@ -11,14 +11,14 @@ import { Price, PRICE_SIZES } from 'components/Price';
 import { Button, BUTTON_TYPES } from 'components/Button';
 
 import { THEME } from 'constants/theme';
-import { FormatUtils } from 'utils/FormatUtils';
+import { SortUtils } from 'utils/SortUtils';
 
 import { StyledShirtCard } from './ShirtCard.style';
 
 function ShirtCard(props) {
   const { name, image, gender, price, color, sizes, colors } = props;
   const formattedColor = THEME.colorsMatching[color] || '';
-  const sortedSizes = FormatUtils.sortSizes(sizes);
+  const sortedSizes = SortUtils.sortSizes(sizes);
 
   const [currentColor, setCurrentColor] = useState('');
 
