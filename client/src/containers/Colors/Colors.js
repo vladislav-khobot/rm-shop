@@ -1,41 +1,29 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { shallowEqual, useSelector } from 'react-redux';
+import React from 'react';
 import PropTypes from 'prop-types';
-
-import { selectCurrentColor } from 'store/common/selectors';
 
 import { Circle } from 'components/Circle';
 import { StyledColors } from './Colors.style';
 
 function Colors(props) {
-  const { colors, onClick } = props;
-  const activeColor = useSelector(selectCurrentColor, shallowEqual);
-
-  const onColorClick = useCallback((color) => {
-    onClick(color);
-  }, [onClick]);
-
-  useEffect(() => {
-    if (colors.length && !activeColor) {
-      onClick(colors[0]);
-    }
-  }, [colors, activeColor, onClick]);
+  const { colors, currentColor, onColorChange } = props;
 
   return (
     <StyledColors data-testid="colors">
-      {colors.map((color) => <Circle key={color} color={color} active={activeColor === color} onClick={onColorClick} />)}
+      {colors.map((color) => <Circle key={color} color={color} active={currentColor === color} onClick={onColorChange} />)}
     </StyledColors>
   );
 }
 
 Colors.propTypes = {
   colors: PropTypes.array,
-  onClick: PropTypes.func,
+  currentColor: PropTypes.string,
+  onColorChange: PropTypes.func,
 };
 
 Colors.defaultProps = {
   colors: [],
-  onClick: () => {},
+  currentColor: '',
+  onColorChange: () => {},
 };
 
 export { Colors };

@@ -1,4 +1,8 @@
 import { render, cleanup, fireEvent } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+
+import { store } from 'store/store';
 
 import { Tab } from 'components/Tab';
 
@@ -9,7 +13,11 @@ describe('Component "Tab"', () => {
 
   const setup = (props = {}) => {
     return render(
-      <Tab {...props} />
+      <Provider store={store}>
+        <BrowserRouter>
+          <Tab {...props} />
+        </BrowserRouter>
+      </Provider>
     );
   }
 

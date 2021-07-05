@@ -1,4 +1,8 @@
 import { render, cleanup } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+
+import { store } from 'store/store';
 
 import { Tabs } from 'containers/Tabs';
 
@@ -9,7 +13,11 @@ describe('Container "Tabs"', () => {
 
   const setup = (props = {}) => {
     return render(
-      <Tabs {...props} />
+      <Provider store={store}>
+        <BrowserRouter>
+          <Tabs {...props} />
+        </BrowserRouter>
+      </Provider>
     );
   };
 
