@@ -1,36 +1,29 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Size } from 'components/Size';
 import { StyledSizes } from './Sizes.style';
 
 function Sizes(props) {
-  const { sizes } = props;
-  const [currentSize, setCurrentSize] = useState('');
-
-  const onClick = useCallback((size) => {
-    setCurrentSize(size);
-  }, [setCurrentSize]);
-
-  useEffect(() => {
-    if (sizes.length) {
-      setCurrentSize(sizes[0]);
-    }
-  }, [sizes]);
+  const { sizes, currentSize, onSizeChange } = props;
 
   return (
     <StyledSizes data-testid="sizes">
-      {sizes.map(size => <Size key={size} size={size} active={size === currentSize} onClick={onClick} />)}
+      {sizes.map(size => <Size key={size} size={size} active={size === currentSize} onClick={onSizeChange} />)}
     </StyledSizes>
   );
 }
 
 Sizes.propTypes = {
   sizes: PropTypes.array,
+  currentSize: PropTypes.string,
+  onSizeChange: PropTypes.func,
 };
 
 Sizes.defaultProps = {
   sizes: [],
+  currentSize: '',
+  onSizeChange: () => {},
 };
 
 export { Sizes };

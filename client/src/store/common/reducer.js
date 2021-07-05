@@ -36,6 +36,18 @@ function commonReducer(state = initialState, action) {
         currentColor: payload.currentColor,
       };
 
+    case commonActions.CURRENT_SIZE_UPDATE:
+      return {
+        ...state,
+        currentSize: payload.currentSize,
+      };
+
+    case commonActions.CURRENT_IMAGE_UPDATE:
+      return {
+        ...state,
+        currentImage: payload.currentImage,
+      };
+
     case commonActions.CURRENT_TAB_UPDATE:
       return {
         ...state,

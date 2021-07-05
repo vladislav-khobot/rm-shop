@@ -9,6 +9,7 @@ import { TopBar } from 'containers/TopBar';
 import { Tabs } from 'containers/Tabs';
 
 import { Gallery } from 'pages/Gallery';
+import { Constructor } from 'pages/Constructor';
 import { NotFoundPage } from 'pages/NotFoundPage';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
       <Switch>
         <Route exact path={ROUTES.home} component={Gallery} />
         <Route exact path={ROUTES.gallery} component={Gallery} />
+        <Route exact path={ROUTES.constructor} component={Constructor} />
         <Route exact path={ROUTES.incorrect} component={NotFoundPage} />
       </Switch>
     </BrowserRouter>

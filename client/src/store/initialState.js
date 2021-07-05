@@ -6,6 +6,8 @@ const initialState = {
   characters: [],
   gallery: [],
   currentColor: '',
+  currentSize: '',
+  currentImage: '',
   currentTab: TAB_TITLES.gallery,
 };
 
