@@ -18,7 +18,9 @@ import { StyledShirtCard } from './ShirtCard.style';
 function ShirtCard(props) {
   const { name, image, gender, price, color, sizes, colors } = props;
   const formattedColor = THEME.colorsMatching[color] || '';
-  const sortedSizes = SortUtils.sortSizes(sizes);
+  const sortedSizes = useMemo(() => {
+    return SortUtils.sortSizes(sizes);
+  }, [sizes]);
 
   const [currentColor, setCurrentColor] = useState('');
 
