@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { commonActions } from 'store/common/actions';
@@ -13,7 +14,7 @@ import { Price, PRICE_SIZES } from 'components/Price';
 import { Button, BUTTON_TYPES } from 'components/Button';
 
 import { THEME } from 'constants/theme';
-import { TAB_TITLES } from 'constants/routes';
+import { ROUTES } from 'constants/routes';
 import { SortUtils } from 'utils/SortUtils';
 
 import { StyledShirtCard } from './ShirtCard.style';
@@ -21,6 +22,7 @@ import { StyledShirtCard } from './ShirtCard.style';
 function ShirtCard(props) {
   const { name, image, gender, price, color, sizes, colors } = props;
   const dispatch = useDispatch();
+  const history = useHistory();
   const formattedColor = THEME.colorsMatching[color] || '';
   const sortedSizes = useMemo(() => {
     return SortUtils.sortSizes(sizes);
@@ -51,8 +53,9 @@ function ShirtCard(props) {
     dispatch(commonActions.currentColorUpdate(currentColor));
     dispatch(commonActions.currentSizeUpdate(currentSize));
     dispatch(commonActions.currentImageUpdate(image));
-    dispatch(commonActions.currentTabUpdate(TAB_TITLES.constructor));
-  }, [dispatch, colorsList, sortedSizes, currentColor, currentSize, image]);
+
+    history.push(ROUTES.constructor);
+  }, [dispatch, history, colorsList, sortedSizes, currentColor, currentSize, image]);
 
   useEffect(() => {
     setCurrentColor(formattedColor);

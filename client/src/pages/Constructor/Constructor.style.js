@@ -22,6 +22,13 @@ export const Wrapper = styled.div`
 
     .info {
 
+      .colors {
+        display: flex;
+      }
+
+      .sizes {
+
+      }
     }
   }
 
